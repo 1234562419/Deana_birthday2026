@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#120f20">
+<title>Happy Birthday, Deana ✦</title>
+<style>
+:root { --bg:#120f20; --pink:#f4a9c8; --cream:#fff5ed; --muted:#c8b9cc; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0; min-height:100vh; color:var(--cream);
+  font-family: ui-rounded, "SF Pro Display", system-ui, -apple-system, sans-serif;
+  background: radial-gradient(ellipse at 20% 10%, #493052 0%, transparent 42%),
+              radial-gradient(ellipse at 80% 90%, #33274d 0%, transparent 45%), var(--bg);
+  overflow-x:hidden;
+}
+.stars, .stars:before, .stars:after {
+ position:fixed; inset:0; pointer-events:none; content:""; z-index:0;
+ background-image: radial-gradient(1px 1px at 8% 18%,#fff 95%,transparent),
+ radial-gradient(1px 1px at 28% 75%,#fff 95%,transparent),
+ radial-gradient(2px 2px at 70% 22%,#f6c5dd 95%,transparent),
+ radial-gradient(1px 1px at 86% 67%,#fff 95%,transparent),
+ radial-gradient(1px 1px at 52% 42%,#fff 95%,transparent),
+ radial-gradient(1px 1px at 17% 53%,#fff 95%,transparent);
+ opacity:.65; animation: shimmer 6s ease-in-out infinite alternate;
+}
+.stars:before { transform:translateY(12px); opacity:.3; }
+@keyframes shimmer { from{opacity:.25} to{opacity:.75} }
+main { position:relative; z-index:1; width:min(760px,92%); margin:auto; padding:70px 0 50px; text-align:center; }
+.eyebrow { letter-spacing:.25em; text-transform:uppercase; font-size:.72rem; color:#d7b8d5; }
+h1 { font-weight:600; line-height:1.12; font-size:clamp(2.6rem,9vw,5.6rem); margin:22px 0 14px; letter-spacing:-.04em; }
+h1 span { color:var(--pink); }
+.subtitle { color:var(--muted); font-size:1.05rem; line-height:1.7; max-width:490px; margin:0 auto 30px; }
+.heart { font-size:2rem; animation:beat 1.8s infinite; display:inline-block; filter:drop-shadow(0 0 12px #f59ac8); }
+@keyframes beat { 0%,100%{transform:scale(1)} 50%{transform:scale(1.14)} }
+button {
+ border:1px solid #e7b9d5; color:#fff7f2; background:linear-gradient(135deg,#9e648f,#72567f);
+ padding:15px 24px; border-radius:999px; font-size:1rem; cursor:pointer; transition:.25s;
+ box-shadow:0 8px 30px #0003;
+}
+button:hover { transform:translateY(-2px); box-shadow:0 12px 35px #e6a6ce33; }
+#letter { display:none; margin:55px auto 0; animation:rise .8s ease both; }
+#letter.show { display:block; }
+@keyframes rise { from{opacity:0; transform:translateY(22px)} to{opacity:1; transform:translateY(0)} }
+.paper {
+ text-align:left; border:1px solid #ffffff24; border-radius:26px; padding:clamp(24px,5vw,44px);
+ background:linear-gradient(145deg,#ffffff12,#ffffff06); backdrop-filter:blur(14px);
+ box-shadow:0 25px 70px #0004;
+}
+.paper .to { color:#f5b6d2; font-family:Georgia,serif; font-size:1.25rem; }
+.paper p { font-family:Georgia,"Times New Roman",serif; font-size:1.12rem; line-height:1.9; color:#fff0e9; }
+.paper .sign { text-align:right; color:#f4a9c8; margin-top:28px; }
+.closing { font-size:clamp(1.1rem,3.8vw,1.5rem); color:#f4a9c8; line-height:1.6; text-align:center!important; margin-top:35px!important; }
+footer { color:#aa9bb3; font-size:.8rem; margin-top:55px; letter-spacing:.06em; }
+.hidden-note { color:#cdb9d1; font-size:.9rem; margin-top:24px; }
+</style>
+</head>
+<body>
+<div class="stars"></div>
+<main>
+  <div class="eyebrow">A little something for you</div>
+  <div class="heart">♥</div>
+  <h1>Happy Birthday,<br><span>Deana</span></h1>
+  <p class="subtitle">Even when I can't be there beside you,<br>there's still a little piece of my day that's always yours.</p>
+  <button id="open" onclick="openLetter()">Open your letter ✦</button>
+  <section id="letter" aria-live="polite">
+    <div class="paper">
+      <div class="to">Dear Deana,</div>
+      <p>I wish I could be with you today, hold your hand, and celebrate your birthday together. Unfortunately, I’ll be at school, but that doesn’t mean you’ll be any less special to me. I hope today reminds you of how wonderful you are and how much you mean to me.</p>
+      <p>If distance could disappear for just one day, I’d spend it all with you. Until we meet again, I hope my love reaches you, even from far away.</p>
+      <p class="sign">Happy birthday, my girl. ❤️</p>
+      <p class="closing">If distance could disappear for just one day,<br>I'd spend it all with you.</p>
+    </div>
+  </section>
+  <div class="hidden-note">Made with love, just for you. ♡</div>
+  <footer>ONE LITTLE PAGE · A BIG FEELING</footer>
+</main>
+<script>
+function openLetter() {
+  const letter = document.getElementById('letter');
+  letter.classList.add('show');
+  document.getElementById('open').textContent = 'Your letter is open ♥';
+  document.getElementById('open').disabled = true;
+  setTimeout(() => letter.scrollIntoView({behavior:'smooth', block:'start'}), 100);
+}
+</script>
+</body>
+</html>
